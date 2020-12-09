@@ -11,7 +11,6 @@ function App() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [photo, setPhoto] = useState('');
 
   async function handleSubmit(event: FormEvent){
 
@@ -21,7 +20,6 @@ function App() {
       name,
       password,
       email,
-      photo
     }).then((response =>{
       console.log(response.data);
     }));
