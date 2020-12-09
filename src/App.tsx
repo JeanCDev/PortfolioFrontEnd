@@ -21,7 +21,7 @@ function App() {
       password,
       email,
     }).then((response =>{
-      console.log(response.data);
+      alert(response.data);
     }));
 
   }
