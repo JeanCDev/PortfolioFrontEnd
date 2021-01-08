@@ -1,13 +1,36 @@
 #header{
-  height: 10em;
+  position: fixed;
+  height: 10rem;
   display: flex;
   justify-content: space-between;
   padding: 1.3em 5em 0 5em;
   background: linear-gradient(#363B4E, #363b4e00);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 #header p {
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0);
   color: #fff;
   font-size: 2.8rem;
+}
+
+@media only screen and (max-width: 992px) {
+
+  #header{
+    padding: 1em 1em 0 1em;
+  }
+
+  #header img{
+    height: 4rem;
+  }
+
+  #header p{
+    font-size: 1.8rem;
+  }
+
 }
 

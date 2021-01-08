@@ -1,0 +1,20 @@
+#footer {
+  height: 6rem;
+  background: #363636;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+#footer p{
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+#footer p+p{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+}

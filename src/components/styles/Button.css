@@ -1,0 +1,27 @@
+.button{
+  height: 3rem;
+  width: 20rem;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border:0;
+  margin-bottom: .8rem;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+  box-shadow: 3px 3px 5px rgb(54, 54, 54);
+}
+
+.button:hover,
+.button:active{
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.9;
+}
+
+.button img{
+  margin-right: 2rem;
+  height: 70%;
+}

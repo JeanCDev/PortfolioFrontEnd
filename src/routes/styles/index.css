@@ -1,0 +1,67 @@
+#main-menu {
+  height: 100vh;
+  background-attachment: cover;
+  background: url('../../images/main-background.svg');
+}
+
+#main-menu .container {
+  height: 100vh;
+}
+
+#linkedin{
+  background-color: #0A66C2
+}
+
+#behance{
+  background-color: #0057FF
+}
+
+#github{
+  background-color: #24292E
+}
+
+#portfolio{
+  background-color: #927FBF
+}
+
+#about-me{
+  margin-top: 5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+#about-me h1{
+  font-size: 4rem;
+  color: #281947
+}
+
+#about-me p{
+  font-size: 1.2rem;
+  color: #281947;
+}
+
+#studies{
+  margin-top: 8rem;
+  background: #B9A6E9;
+  padding-top: 6rem;
+  border-radius: 0.8rem 0.8rem 0 0;
+  font-family: "Poppins", sans-serif;
+}
+
+#studies h2{
+  color: #3A2A5B;
+  font-size: 3rem;
+}
+
+#studies p,
+#studies li{
+  color: #281947;
+  font-size:1.2rem;
+}
+
+.container+.container{
+  margin-top: 5rem;
+}
+
+#graduation {
+  padding-bottom: 5rem;
+}
