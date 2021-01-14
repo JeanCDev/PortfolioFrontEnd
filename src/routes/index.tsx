@@ -2,7 +2,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
 import behance from '../images/behance.svg';
-import contact from '../images/Contact.svg';
+//import contact from '../images/Contact.svg';
 import github from '../images/github.svg';
 import graduation from '../images/graduation.svg';
 import linkedin from '../images/linkedin.svg';
