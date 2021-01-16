@@ -1,0 +1,21 @@
+#contact-button{
+
+  float: left;
+  position: fixed;
+  z-index: 10;
+  right: 3em;
+  bottom: 3em;
+
+  width: 8em;
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  #contact-button{
+    right: 1em;
+    bottom: 1em;
+    width: 6em;
+  }
+
+}
