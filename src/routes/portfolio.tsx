@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import api from "../api";
 
 import Header from "../components/Header";
-import Modal from "../components/Modal";
 import Card from "../components/Card";
 import './styles/portfolio.css';
 
