@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 import api from '../api';
 
-interface Project{
+interface ProjectInfo{
   projectId: number;
   projectName: string;
   projectDescription: string;
@@ -17,7 +17,7 @@ interface ProjectParam{
 
 export default function Project(){
 
-  const [project, setProject] = useState<Project>();
+  const [project, setProject] = useState<ProjectInfo>();
   const params = useParams<ProjectParam>();
 
   useEffect(() => {
