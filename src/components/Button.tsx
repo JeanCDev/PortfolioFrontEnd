@@ -11,12 +11,25 @@ type ButtonProps = {
 
 function Button({id, linkTo, altImg, image, name}: ButtonProps){
 
-  return(
-    <Link className="button" id={id} to={linkTo}>
-      <img src={image} alt={altImg}/>
-      {name}
-    </Link>
-  );
+  if(linkTo.startsWith('http')){
+
+    return(
+      <a className="button" id={id} href={linkTo}>
+        <img src={image} alt={altImg}/>
+        {name}
+      </a>
+    );
+
+  } else{
+
+    return(
+      <Link className="button" id={id} to={linkTo}>
+        <img src={image} alt={altImg}/>
+        {name}
+      </Link>
+    );
+
+  }
 
 }
 

@@ -40,21 +40,21 @@ export default function Index() {
 
                   <Button
                     id="github"
-                    linkTo=""
+                    linkTo="https://github.com/JeanCDev"
                     image={github}
                     altImg="Ícone do GitHub"
                     name="GitHub" />
 
                   <Button
                     id="behance"
-                    linkTo=""
+                    linkTo="https://www.behance.net/JeanCDev"
                     image={behance}
                     altImg="Ícone do Behance"
                     name="Behance" />
 
                   <Button
                     id="linkedin"
-                    linkTo=""
+                    linkTo="https://www.linkedin.com/in/jean-c-gomes-design/"
                     image={linkedin}
                     altImg="Ícone do LinkedIn"
                     name="LinkedIn" />
