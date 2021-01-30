@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import { useHistory } from 'react-router-dom';
 import api from '../api';
 
@@ -15,7 +15,7 @@ export default function AdminLogin(){
     let history = useHistory();
     let token = localStorage.getItem('auth-token');
 
-    async function loadUsers() {
+    const loadUsers =  useCallback(async () => {
       await api.get('/login', {
         headers: {
           "auth-token": token
@@ -26,7 +26,7 @@ export default function AdminLogin(){
         console.log(error);
         history.push('/admin/login');
       });
-    };
+    },[]);
 
     useEffect(() => {
 
