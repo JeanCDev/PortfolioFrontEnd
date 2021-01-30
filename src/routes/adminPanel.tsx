@@ -12,25 +12,23 @@ interface UserInfo{
 export default function AdminLogin(){
 
     const [users, setUsers] = useState<UserInfo[]>([]);
-
     let history = useHistory();
     let token = localStorage.getItem('auth-token');
 
-    useEffect(() => {
+    async function loadUsers() {
+      await api.get('/login', {
+        headers: {
+          "auth-token": token
+        }
+      }).then((response =>{
+        setUsers(response.data);
+      })).catch(error=>{
+        console.log(error);
+        history.push('/admin/login');
+      });
+    };
 
-      async function loadUsers() {
-        await api.get('/login', {
-          headers: {
-            "auth-token": token
-          }
-        }).then((response =>{
-          setUsers(response.data);
-          console.log(users)
-        })).catch(error=>{
-          console.log(error);
-          history.push('/admin/login');
-        });
-      };
+    useEffect(() => {
 
       loadUsers();
 
