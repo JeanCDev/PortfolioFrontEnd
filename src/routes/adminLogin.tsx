@@ -1,23 +1,33 @@
 
 import {useState, FormEvent} from 'react';
+import { useHistory } from 'react-router-dom';
 import api from '../api';
 
-export default function Index(){
+export default function AdminLogin(){
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    let history = useHistory();
+
+    const [email, setEmail] = useState('paulaas5@gmaicom.uk');
+    const [password, setPassword] = useState('123456');
 
     async function handleSubmit(event: FormEvent){
 
+      const loginFailureMessage = 'Email or password incorrect!'
+
       event.preventDefault();
 
-      await api.post('login', {
-        name,
+      await api.post('login-validation', {
         password,
         email,
       }).then((response =>{
-        alert(response.data);
+        
+        if(response.data === loginFailureMessage){
+          alert('Email ou senha inválidos');
+        } else{
+          localStorage.setItem('auth-token', response.data);
+          history.push('/admin');
+        }
+
       }));
 
   }
@@ -26,7 +36,6 @@ export default function Index(){
       
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={name} onChange={e => setName(e.target.value)}/>
         <input type="text" name="email" value={email} onChange={e => setEmail(e.target.value)}/>
         <input type="text" name="password" value={password} onChange={e => setPassword(e.target.value)}/>
         <button type="submit">Vai</button>

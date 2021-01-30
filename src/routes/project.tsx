@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
+
+import Header from './../components/Header';
+import Footer from './../components/Footer';
 import api from '../api';
+import './styles/project.css';
 
 interface ProjectInfo{
   projectId: number;
@@ -19,26 +23,47 @@ export default function Project(){
 
   const [project, setProject] = useState<ProjectInfo>();
   const params = useParams<ProjectParam>();
-
+  
   useEffect(() => {
     api.get(`projects/${params.id}`).then(response=>{
       setProject(response.data);
-      console.log(response.data);
     });
-
+    
   },[params.id]);
 
   return (
 
+    
     <div id="project">
-      <div className="container">
 
-        <h1>{project?.projectName}</h1>
-        <p>{project?.projectDescription}</p>
-        <img src={`${process.env.REACT_APP_API_URL}/${project?.projectImageUrl}`} alt=""/>
-        <a href={project?.githubUrl}>Github do projeto</a>
-        <a href={project?.projectLink}>Link do projeto</a>
+      <Header/>
+
+      <div className="container">
+        <div className="row">
+          <h1>{project?.projectName}</h1>
+
+          <p>{project?.projectDescription}</p>
+
+          <img 
+            className=""
+            src={`${process.env.REACT_APP_API_URL}/${project?.projectImageUrl}`} 
+            alt={project?.projectName}/>
+
+          <div className="d-flex mt-5 justify-content-center row">
+            <a 
+              href={project?.githubUrl}
+              className="btn btn-primary col-4">Github do projeto</a>
+            <a 
+              href={project?.projectLink}
+              className="btn btn-info d-flex align-items-center col-4 offset-1 justify-content-center">
+                Link do projeto</a>
+          </div>
+        </div>
+        
       </div>
+      <div className="before-footer"></div>
+      <Footer/>
+
     </div>
 
   );

@@ -1,3 +1,7 @@
 div.card{
   box-shadow: 3px 3px 5px #66666680;
 }
+
+div.card img{
+  height: 200px;
+}

@@ -21,7 +21,6 @@ function Portfolio(){
   useEffect(() => {
     api.get("projects").then((response)=>{
       setProjects(response.data);
-      console.log(response)
     });
   }, []);
 

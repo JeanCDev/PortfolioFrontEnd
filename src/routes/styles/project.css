@@ -1,0 +1,36 @@
+#project{
+  padding-top: 12rem;
+  background: #B9A6E9;
+}
+#project .container {
+  font-family: "Poppins", sans-serif;
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 3em;
+}
+
+#project .container h1{
+  font-size: 4rem;
+  color: #281947;
+}
+
+#project .container p{
+  font-size: 1.2rem;
+  color: #281947;
+}
+
+#project .container img{
+  border-radius: 1rem;
+}
+
+.before-footer{
+  margin-top: 10rem;
+}
+
+@media only screen and (max-width: 576px) {
+
+  #project .container{
+    width: 95%;
+  }
+
+}
