@@ -28,7 +28,7 @@ export default function AdminLogin(){
         history.push('/admin/login');
       });
 
-    },[]);
+    },[token, history]);
 
   return(
       
