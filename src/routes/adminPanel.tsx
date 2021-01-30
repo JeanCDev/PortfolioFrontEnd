@@ -15,7 +15,7 @@ export default function AdminLogin(){
     let history = useHistory();
     let token = localStorage.getItem('auth-token');
 
-    const loadUsers =  useCallback(async () => {
+    const loadUsers =  useCallback(async (token, history) => {
       await api.get('/login', {
         headers: {
           "auth-token": token
@@ -30,7 +30,7 @@ export default function AdminLogin(){
 
     useEffect(() => {
 
-      loadUsers();
+      loadUsers(token, history);
 
     },[loadUsers]);
 
