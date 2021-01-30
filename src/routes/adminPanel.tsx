@@ -32,7 +32,7 @@ export default function AdminLogin(){
 
       loadUsers();
 
-    },[]);
+    },[loadUsers]);
 
   return(
       
