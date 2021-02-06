@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import api from '../api';
+import AdminCard from '../components/AdminCard';
+import AdminNavbar from '../components/AdminNavbar';
+import './styles/adminPanel.css';
 
 interface UserInfo{
   userId: string,
@@ -32,14 +35,45 @@ export default function AdminLogin(){
 
   return(
       
-    <div className="d-flex justify-content-center align-items-center">
-      {users.map(user =>{
-        return (<div key={user.userId}>
-          <p>{user.userName}</p>
-          <p>{user.userEmail}</p>
-          {/* <p>{user.userPassword}</p> */}
-        </div>)
-      })}
+    <div id="control-panel">
+      
+      <AdminNavbar />
+      
+      <main className="mt-5">
+        <section>
+          <div className="container">
+            <div className="row">
+              <div className="d-flex justify-content-center col-12 col-md-6 ">
+                <AdminCard 
+                  title="Usuários Cadastrados"
+                  information={users.length}
+                />
+              </div>
+              <div className="d-flex justify-content-center col-12 col-md-6">
+              <AdminCard 
+                  title="Projetos Cadastrados"
+                  information={0}
+                />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="d-flex justify-content-center col-12 col-md-6 ">
+              <AdminCard 
+                  title="Mensagens recebidas"
+                  information={0}
+                />
+              </div>
+              <div className="d-flex justify-content-center col-12 col-md-6">
+                <AdminCard 
+                  title="Assuntos Cadastrados"
+                  information={0}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
     
   );

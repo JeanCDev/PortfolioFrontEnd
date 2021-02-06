@@ -8,20 +8,38 @@
   height: 100vh;
 }
 
+#linkedin, #behance, #github, #portfolio{
+  transition: all .5s;
+  color: #fff;
+}
+
 #linkedin{
-  background-color: #0A66C2
+  background-color: #0A66C2;
+}
+#linkedin:hover,
+#linkedin:active{
+  background-color: #0753a0;
 }
 
 #behance{
   background-color: #0057FF
 }
+#behance:hover, #behance:active{ 
+  background-color: #004add
+}
 
 #github{
   background-color: #24292E
 }
+#github:hover, #github:active{
+  background-color: #0e1113
+}
 
 #portfolio{
   background-color: #927FBF
+}
+#portfolio:hover, #portfolio:active{
+  background-color: #7b6ba1
 }
 
 #about-me{

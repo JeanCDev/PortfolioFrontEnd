@@ -15,12 +15,6 @@
   box-shadow: 3px 3px 5px rgb(54, 54, 54);
 }
 
-.button:hover,
-.button:active{
-  color: rgba(255, 255, 255, 0.9);
-  opacity: 0.9;
-}
-
 .button img{
   margin-right: 2rem;
   height: 70%;
