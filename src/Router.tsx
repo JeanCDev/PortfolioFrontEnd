@@ -6,6 +6,7 @@ import Project from "./routes/project";
 import Contact from "./routes/contact";
 import AdminLogin from "./routes/adminLogin";
 import AdminPanel from "./routes/adminPanel";
+import Users from "./routes/users";
 
 function Router(){
 
@@ -18,6 +19,7 @@ function Router(){
         <Route path="/project/:id" component={Project}/>
         <Route path="/contact" component={Contact}/>
         <Route path="/admin/login" component={AdminLogin}/>
+        <Route path="/admin/users" component={Users}/>
         <Route path="/admin" component={AdminPanel}/>
       </Switch>
     </BrowserRouter>

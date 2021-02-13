@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import api from '../api';
 import AdminCard from '../components/AdminCard';
 import AdminNavbar from '../components/AdminNavbar';
+import Loading from '../components/Loading';
 import './styles/adminPanel.css';
 
 interface UserInfo{
@@ -13,6 +14,8 @@ interface UserInfo{
 }
 
 export default function AdminLogin(){
+
+    const [loading, setLoading] = useState(true);
 
     const [users, setUsers] = useState<UserInfo[]>([]);
     let history = useHistory();
@@ -26,15 +29,19 @@ export default function AdminLogin(){
         }
       }).then((response =>{
         setUsers(response.data);
+        setLoading(false);
       })).catch(error=>{
         console.log(error);
         history.push('/admin/login');
       });
 
     },[token, history]);
+  
+  if(loading){
+    return <Loading />
+  }
 
   return(
-      
     <div id="control-panel">
       
       <AdminNavbar />

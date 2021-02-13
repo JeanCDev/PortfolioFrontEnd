@@ -5,6 +5,7 @@ import Header from './../components/Header';
 import Footer from './../components/Footer';
 import api from '../api';
 import './styles/project.css';
+import Loading from '../components/Loading';
 
 interface ProjectInfo{
   projectId: number;
@@ -21,15 +22,22 @@ interface ProjectParam{
 
 export default function Project(){
 
+  const [loading, setLoading] = useState(true);
+
   const [project, setProject] = useState<ProjectInfo>();
   const params = useParams<ProjectParam>();
   
   useEffect(() => {
     api.get(`projects/${params.id}`).then(response=>{
       setProject(response.data);
+      setLoading(false);
     });
     
   },[params.id]);
+
+  if(loading){
+    return <Loading />
+  }
 
   return (
 

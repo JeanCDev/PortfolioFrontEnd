@@ -4,6 +4,7 @@ import api from "../api";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import './styles/portfolio.css';
+import Loading from "../components/Loading";
 
 interface Project{
   projectId: number;
@@ -16,16 +17,23 @@ interface Project{
 
 function Portfolio(){
 
+  const [loading, setLoading] = useState(true);
+  
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     api.get("projects").then((response)=>{
       setProjects(response.data);
+      setLoading(false)
     });
   }, []);
 
+  
+  if (loading){
+    return <Loading />;
+  } 
+  
   return (
-
     <div id="projects">
       <div id="head">
       <Header />
@@ -58,7 +66,6 @@ function Portfolio(){
     </div>
 
   );
-
 }
 
 export default Portfolio;
