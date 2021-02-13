@@ -28,7 +28,7 @@ export default function Users(){
       setUsers(response.data);
       setLoading(false);
     });
-  }, []);
+  }, [token]);
 
   let selectedUser = {
     userId: 1,
