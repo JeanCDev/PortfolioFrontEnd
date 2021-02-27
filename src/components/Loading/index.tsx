@@ -1,5 +1,5 @@
-import LoadingIcon from '../images/loading-icon.gif';
-import './styles/Loading.css';
+import LoadingIcon from '../../images/loading-icon.gif';
+import './Loading.css';
 
 export default function Loading(){
 

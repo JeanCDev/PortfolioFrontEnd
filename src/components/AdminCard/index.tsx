@@ -1,4 +1,4 @@
-import './styles/AdminCard.css';
+import './AdminCard.css';
 
 type AdminCardProps = {
   title: string;

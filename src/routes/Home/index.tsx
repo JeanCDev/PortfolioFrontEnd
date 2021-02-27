@@ -1,18 +1,18 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Button from '../components/Button';
-import ContactButton from '../components/ContactButton';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Button from '../../components/Button';
+import ContactButton from '../../components/ContactButton';
 
-import behance from '../images/behance.svg';
-import github from '../images/github.svg';
-import graduation from '../images/graduation.svg';
-import linkedin from '../images/linkedin.svg';
-import portfolio from '../images/portfolio.svg';
-import programmer from '../images/programmer.svg';
-import programming from '../images/programming.svg';
-import me from '../images/me.png';
+import behance from '../../images/behance.svg';
+import github from '../../images/github.svg';
+import graduation from '../../images/graduation.svg';
+import linkedin from '../../images/linkedin.svg';
+import portfolio from '../../images/portfolio.svg';
+import programmer from '../../images/programmer.svg';
+import programming from '../../images/programming.svg';
+import me from '../../images/me.png';
 
-import './styles/index.css';
+import './index.css';
 
 export default function Index() {
 

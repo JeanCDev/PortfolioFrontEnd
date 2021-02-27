@@ -1,13 +1,13 @@
 import {FormEvent, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import api from '../api';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import api from '../../api';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 
-import PaperPlane from '../images/PaperPlane.svg';
+import PaperPlane from '../../images/PaperPlane.svg';
 
-import './styles/contact.css';
+import './contact.css';
 
 export default function Contact(){
 
@@ -40,7 +40,7 @@ export default function Contact(){
       await api.post('messages', params).then(response=>{
         alert('Obrigado por entrar em contato. Responderemos em breve!');
         history.push('/');
-      });
+      }).catch(()=>alert('Ops! Ocorreu um erro'));
     }
 
   }
@@ -52,7 +52,7 @@ export default function Contact(){
       <div className="container">
         <h1 className="text-center">Deixe sua mensagem</h1>
 
-        <form action="" onSubmit={handleSubmit} className="container-fluid mt-5">
+        <form onSubmit={handleSubmit} className="container-fluid mt-5">
 
           <div className="row justify-content-between">
             <div className="col-12 mb-3 col-lg-5">

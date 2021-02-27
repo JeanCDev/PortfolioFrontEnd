@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
-import JC from '../images/JC.svg';
-import './styles/Header.css';
+import { Link, useLocation } from 'react-router-dom';
+import JC from '../../images/JC.svg';
+import './Header.css';
 
 function Header(){
+
+  let location = useLocation();
+
+  console.log(location.pathname);
 
   return(
     <header id="header">

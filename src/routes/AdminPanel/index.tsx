@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../api';
-import AdminCard from '../components/AdminCard';
-import AdminNavbar from '../components/AdminNavbar';
-import Loading from '../components/Loading';
-import './styles/adminPanel.css';
+import api from '../../api';
+import AdminCard from '../../components/AdminCard';
+import AdminNavbar from '../../components/AdminNavbar';
+import Loading from '../../components/Loading';
+import './adminPanel.css';
 
 interface UserInfo{
   userId: string,
@@ -30,8 +30,11 @@ export default function AdminLogin(){
       }).then((response =>{
         setUsers(response.data);
         setLoading(false);
-      })).catch(error=>{
-        console.log(error);
+      })).catch(()=>{
+        if(token) {
+          localStorage.removeItem('auth-token');
+        }
+
         history.push('/admin/login');
       });
 

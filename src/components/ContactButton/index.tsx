@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Contact from '../images/Contact.svg';
-import './styles/ContactButton.css';
+import Contact from '../../images/Contact.svg';
+import './ContactButton.css';
 
 export default function ContactButton(){
 

@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
-import JC from '../images/JC.svg';
-import './styles/AdminNavbar.css';
+import JC from '../../images/JC.svg';
+import './AdminNavbar.css';
 
 export default function AdminNavbar(){
 

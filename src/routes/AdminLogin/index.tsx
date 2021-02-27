@@ -1,13 +1,18 @@
 
 import {useState, FormEvent} from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../api';
-import JC from '../images/JC.svg';
-import './styles/login.css';
+import api from '../../api';
+import JC from '../../images/JC.svg';
+import './login.css';
 
 export default function AdminLogin(){
 
     let history = useHistory();
+    let token = localStorage.getItem('auth-token');
+
+    if(token) {
+      history.push('/admin');
+    }
 
     const [email, setEmail] = useState('paulaas5@gmaicom.uk');
     const [password, setPassword] = useState('123456');
@@ -49,7 +54,7 @@ export default function AdminLogin(){
             onChange={e => setEmail(e.target.value)}
             className="form-control"/>
           <input 
-            type="text" 
+            type="password" 
             name="password" 
             value={password} 
             onChange={e => setPassword(e.target.value)}
