@@ -17,7 +17,7 @@ export default function ProjectUpdate(){
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [link, setLink] = useState('');
-  const [image, setImage] = useState<File>();
+  //const [image, setImage] = useState<File>();
   const [github, setGithub] = useState('');
 
   useEffect(() => {
