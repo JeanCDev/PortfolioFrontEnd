@@ -1,8 +1,8 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import api from '../../api';
-import AdminNavbar from '../../components/AdminNavbar';
-import Loading from '../../components/Loading';
+import api from '../../../api';
+import AdminNavbar from '../../../components/AdminNavbar';
+import Loading from '../../../components/Loading';
 
 interface UserParam{id: string}
 
@@ -26,7 +26,7 @@ export default function Users(){
       }
     }).then((response)=>{
       
-      if(response.data === "User not found") history.push("/admin/users")
+      if(response.data === "User not found") history.push("/admin/users");
 
       else {
         setName(response.data.userName);

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom';
 
-import Header from './../../components/Header';
-import Footer from './../../components/Footer';
-import api from '../../api';
+import Header from './../../../components/Header';
+import Footer from './../../../components/Footer';
+import api from '../../../api';
 import './project.css';
-import Loading from '../../components/Loading';
+import Loading from '../../../components/Loading';
 
 interface ProjectInfo{
   projectId: number;

@@ -1,11 +1,11 @@
 import {FormEvent, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import api from '../../api';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import api from '../../../api';
+import Footer from '../../../components/Footer';
+import Header from '../../../components/Header';
 
-import PaperPlane from '../../images/PaperPlane.svg';
+import PaperPlane from '../../../images/PaperPlane.svg';
 
 import './contact.css';
 

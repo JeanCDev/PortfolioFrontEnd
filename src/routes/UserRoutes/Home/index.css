@@ -1,7 +1,7 @@
 #main-menu {
   height: 100vh;
   background-attachment: cover;
-  background: url('../../images/main-background.svg');
+  background: url('../../../images/main-background.svg');
 }
 
 #main-menu .container {

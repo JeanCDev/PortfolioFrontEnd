@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import api from '../../api';
-import AdminNavbar from '../../components/AdminNavbar';
-import Loading from '../../components/Loading';
-import UserModal from '../../components/UserModal';
+import api from '../../../api';
+import AdminNavbar from '../../../components/AdminNavbar';
+import Loading from '../../../components/Loading';
+import UserModal from '../../../components/UserModal';
 
 interface UserInfo{
   userId: number,
@@ -55,11 +55,11 @@ export default function Users(){
       <div className="container mt-2">
         <table className="table table-hover table-striped"> 
           <thead className="table-dark">
-            <tr>
+            <tr className='text-center'>
               <th>id</th>
               <th>Nome</th>
               <th>Email</th>
-              <th className='text-center'>Ações</th>
+              <th>Ações</th>
             </tr>
           </thead>
 
@@ -80,18 +80,22 @@ export default function Users(){
                     </Link>
                     <button className="ms-1 btn btn-danger" onClick={
                       ()=>{
-                        api.delete(`/login/${user.userId}`,{headers: {
-                          'auth-token':token
-                        }}).then(response =>{
-                          if(response.data === 'User not found'){
-                            alert('Usuário não encontrado');
-                            return;
-                          }
-                          alert('Usuário excluído com sucesso');
-                          window.location.reload();
-                        }).catch(()=>{
-                          console.log('Ocorreu um erro');
-                        });
+                        let result = window.confirm('Deseja realmente excluir o usuário');
+
+                        if(result) {
+                          api.delete(`/login/${user.userId}`,{headers: {
+                            'auth-token':token
+                          }}).then(response =>{
+                            if(response.data === 'User not found'){
+                              alert('Usuário não encontrado');
+                              return;
+                            }
+                            alert('Usuário excluído com sucesso');
+                            window.location.reload();
+                          }).catch(()=>{
+                            console.log('Ocorreu um erro');
+                          });
+                        }
                       }
                     }>X</button>
                   </td>

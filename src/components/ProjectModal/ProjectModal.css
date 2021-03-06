@@ -1,0 +1,7 @@
+.form-group + .form-group{
+  margin-top: .8rem;
+}
+
+#description {
+  height: 18rem;
+}

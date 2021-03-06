@@ -1,8 +1,8 @@
 
 import {useState, FormEvent} from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../../api';
-import JC from '../../images/JC.svg';
+import api from '../../../api';
+import JC from '../../../images/JC.svg';
 import './login.css';
 
 export default function AdminLogin(){

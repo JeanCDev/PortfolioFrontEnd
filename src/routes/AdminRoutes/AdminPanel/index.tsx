@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../../api';
-import AdminCard from '../../components/AdminCard';
-import AdminNavbar from '../../components/AdminNavbar';
-import Loading from '../../components/Loading';
+import api from '../../../api';
+import AdminCard from '../../../components/AdminCard';
+import AdminNavbar from '../../../components/AdminNavbar';
+import Loading from '../../../components/Loading';
 import './adminPanel.css';
 
 interface UserInfo{

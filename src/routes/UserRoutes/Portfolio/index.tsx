@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import api from "../../api";
+import api from "../../../api";
 
-import Header from "../../components/Header";
-import Card from "../../components/Card";
+import Header from "../../../components/Header";
+import Card from "../../../components/Card";
 import './portfolio.css';
-import Loading from "../../components/Loading";
+import Loading from "../../../components/Loading";
 
 interface Project{
   projectId: number;
