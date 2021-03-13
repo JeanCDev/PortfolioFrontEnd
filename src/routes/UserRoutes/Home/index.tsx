@@ -150,7 +150,7 @@ export default function Index() {
                     - Curso de Aprendizagem Industrial de Ajustador Mecânico no SENAI;
                   </p>
                   <p className="text-center">
-                    - Cusrsando Análise e Desenvolvimento de
+                    - Cursando Análise e Desenvolvimento de
                     Sistemas na Universidade Estácio de Sá de
                     Joinville, Santa Catarina.
                   </p>
