@@ -61,10 +61,13 @@ export default function Project(){
             <a 
               href={project?.githubUrl}
               className="btn btn-primary col-4">Github do projeto</a>
-            <a 
-              href={project?.projectLink}
-              className="btn btn-info d-flex align-items-center col-4 offset-1 justify-content-center">
-                Link do projeto</a>
+            {project?.projectLink ?
+               <a 
+               href={project?.projectLink}
+               className="btn btn-info d-flex align-items-center col-4 offset-1 justify-content-center">
+                 Link do projeto</a> :
+               '' 
+            }
           </div>
         </div>
         

@@ -5,10 +5,11 @@ function Footer(){
   return (
     <footer id="footer">
       <p>
-        &copy; Todos os direitos reservados
+        &copy; Todos os direitos reservados - Jean Carlos Gomes
       </p>
+        
       <p>
-        Jean Carlos Gomes
+        Vetores by: <a href="https://undraw.co/illustrations">unDraw</a>
       </p>
     </footer>
   );

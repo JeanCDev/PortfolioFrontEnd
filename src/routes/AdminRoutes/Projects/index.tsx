@@ -95,7 +95,7 @@ export default function Projects(){
                     </Link>
                     <button className="ms-1 btn btn-danger" onClick={
                       ()=>{
-                        let result = window.confirm('Deseja realmente excluir o usuário');
+                        let result = window.confirm('Deseja realmente excluir o projeto?');
 
                         if(result) {
                           api.delete(`/projects/${project.projectId}`,{headers: {

@@ -74,7 +74,7 @@ export default function Messages(){
                   <td>
                     <button className="ms-1 btn btn-danger" onClick={
                       ()=>{
-                        let result = window.confirm('Deseja realmente excluir a mensagem');
+                        let result = window.confirm('Deseja realmente excluir a mensagem?');
 
                         if(result){
                           api.delete(`/messages/${message.messageId}`,{headers: {

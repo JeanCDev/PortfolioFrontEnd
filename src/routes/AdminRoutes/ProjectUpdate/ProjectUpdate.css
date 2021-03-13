@@ -1,0 +1,14 @@
+#project-update img{
+  width: 10rem;
+}
+
+#project-update{
+  background-color: #927FBF;
+  padding: 5rem;
+  border-radius: 1rem;
+}
+
+#project-update label{
+  color: #281947;
+  font-size: 1.3rem;
+}

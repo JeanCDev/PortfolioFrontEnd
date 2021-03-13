@@ -80,7 +80,7 @@ export default function Users(){
                     </Link>
                     <button className="ms-1 btn btn-danger" onClick={
                       ()=>{
-                        let result = window.confirm('Deseja realmente excluir o usuário');
+                        let result = window.confirm('Deseja realmente excluir o usuário?');
 
                         if(result) {
                           api.delete(`/login/${user.userId}`,{headers: {

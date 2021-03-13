@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {ChangeEvent, useState} from 'react';
 import api from '../../api';
 import { useHistory } from 'react-router-dom';
 import "./ProjectModal.css";
@@ -8,21 +8,27 @@ export default function ProjectModal(){
   const token = localStorage.getItem('auth-token');
   const history = useHistory();
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState('Casa da Criança');
+  const [description, setDescription] = useState('Descrição descritiva');
   const [link, setLink] = useState('');
-  const [image, setImage] = useState('');
-  const [github, setGithub] = useState('');
+  const [image, setImage] = useState<File>();
+  const [github, setGithub] = useState('https://github.com/JeanCDev/NextLevelWeek-3');
 
   async function saveProjectInfo(){ 
 
-    await api.post(`projects/`, {
-      name, description, link, image, github},
+    const data = new FormData();
+    
+    data.append('name', name);
+    data.append('description', description);
+    data.append('link', link);
+    if(image) data.append('image', image);
+    data.append('github_url', github);
+
+    await api.post(`projects/`, data,
       {headers: {
         "auth-token": token
       }
-    }).then(response =>{
-      
+    }).then(response =>{ 
       if(response.data === 'Missing required fields'){
         alert('Faltam campos a serem preenchidos');
         return;
@@ -30,8 +36,7 @@ export default function ProjectModal(){
 
       alert('Projeto inserido com sucesso');
       window.location.reload();
-
-    }).catch(()=>{
+    }).catch((e)=>{
       if(token) {
         localStorage.removeItem('auth-token');
       }
@@ -39,6 +44,13 @@ export default function ProjectModal(){
       history.push('/admin/login');
     });
 
+  }
+
+  function handleImage(event: ChangeEvent<HTMLInputElement>){
+    if(!event.target.files){
+      return;
+    }
+    setImage(event.target.files[0]);
   }
   
   return(
@@ -91,8 +103,7 @@ export default function ProjectModal(){
                 type="file" 
                 id="image" 
                 name="image" 
-                value={image}
-                onChange={e => setImage(e.target.value)}
+                onChange={handleImage}
                 className="form-control"/>
             </div>
 

@@ -142,6 +142,10 @@ export default function Index() {
               <div className='col-12 order-2 order-lg-1 col-lg-5 d-flex justify-content-center align-items-center'>
                 <div>
                   <h2 className="text-center">Formação</h2>
+                  <p className="text-center">
+                    - Ensino médio completo na Escola de Educação Básica
+                    Dr Georg Keller;
+                  </p>
                   <p className="text-center mt-3">
                     - Curso de Aprendizagem Industrial de Ajustador Mecânico no SENAI;
                   </p>
@@ -149,10 +153,6 @@ export default function Index() {
                     - Cusrsando Análise e Desenvolvimento de
                     Sistemas na Universidade Estácio de Sá de
                     Joinville, Santa Catarina.
-                  </p>
-                  <p className="text-center">
-                    - Ensino médio completo na Escola de Educação Básica
-                    Dr Georg Keller;
                   </p>
                 </div>
               </div>

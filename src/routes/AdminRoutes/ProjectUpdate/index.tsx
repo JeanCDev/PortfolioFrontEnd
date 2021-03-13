@@ -1,8 +1,9 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent, ChangeEvent} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import api from '../../../api';
 import AdminNavbar from '../../../components/AdminNavbar';
 import Loading from '../../../components/Loading';
+import './ProjectUpdate.css';
 
 interface ProjectParam{id: string}
 
@@ -17,7 +18,8 @@ export default function ProjectUpdate(){
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [link, setLink] = useState('');
-  //const [image, setImage] = useState<File>();
+  const [image, setImage] = useState<File>();
+  const [currentImage, setCurrentImage] = useState('');
   const [github, setGithub] = useState('');
 
   useEffect(() => {
@@ -32,8 +34,9 @@ export default function ProjectUpdate(){
       else {
         setName(response.data.projectName);
         setDescription(response.data.projectDescription);
-        setLink(response.data.projectDescription);
-        setGithub(response.data.projectDescription);
+        setLink(response.data.projectLink);
+        setGithub(response.data.githubUrl);
+        setCurrentImage(`${process.env.REACT_APP_API_URL}/${response.data.projectImageUrl}`);
       }
 
       setLoading(false);
@@ -51,36 +54,59 @@ export default function ProjectUpdate(){
     return <Loading />
   } 
 
-  async function handleUserEdit(event: FormEvent){
+  async function handleProjectEdit(event: FormEvent){ 
+
     event.preventDefault();
 
-    //let nullable = (param: any)=> param === '' || param === null || param === undefined ? true : false;
+    const data = new FormData();
+    
+    data.append('name', name);
+    data.append('description', description);
+    data.append('link', link);
+    if(image) data.append('image', image);
+    data.append('github_url', github);
 
-    //if(nullable(password) && nullable(passwordCheck) && user) setPassword(user.userPassword);
+    await api.put(`projects/${params.id}`, data,
+      {headers: {
+        "auth-token": token
+      }
+    }).then(response =>{ 
+      if(response.data === 'Missing required fields'){
+        alert('Faltam campos a serem preenchidos');
+        return;
+      }
 
-    /* if(password !== passwordCheck){
-      alert('As senhas devem ser iguais');
-    } else {
-      await api.put(`login/${params.id}`, {name, email, password}, {
-        headers: {
-          "auth-token": token,
-          'Content-Type': 'application/json'
-        }
-      }).then(() => {
-        alert('Usuário atualizado com sucesso!');
-        history.push('/admin/users');
-      }).catch(()=>alert('Ocorreu um erro'));
-    } */
+      alert('Projeto atualizado com sucesso');
+      history.push('/admin/projects');
+    }).catch((e)=>{
+      if(token) {
+        localStorage.removeItem('auth-token');
+      }
 
+      history.push('/admin/login');
+    });
+
+  }
+
+  function handleImage(event: ChangeEvent<HTMLInputElement>){
+    if(!event.target.files){
+      return;
+    }
+    setImage(event.target.files[0]);
   }
 
   return (
     <div id="admin-project">
       <AdminNavbar />
 
-      <div className="container mt-5">
-        
-        <form onSubmit={handleUserEdit} method="post" className="row" >
+      <div className="container mt-5 mb-5" id="project-update">
+        <div className="row">
+          <h1 className="text-center display-4">Imagem Atual do projeto</h1>
+          <div className="d-flex justify-content-center ">
+            <img src={currentImage} alt={name} className="img-fluid img-thumbnail"/>
+          </div>
+        </div>
+        <form onSubmit={handleProjectEdit} method="post" className="row" >
           
         <div className="form-group">
               <label htmlFor="name">Nome</label>
@@ -94,7 +120,7 @@ export default function ProjectUpdate(){
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Link do Github</label>
+              <label htmlFor="githubUrl">Link do Github</label>
               <input 
                 type="link" 
                 id="githubUrl" 
@@ -105,7 +131,7 @@ export default function ProjectUpdate(){
             </div>
 
             <div className="form-group">
-              <label htmlFor="name">Link do projeto</label>
+              <label htmlFor="link">Link do projeto</label>
               <input 
                 type="link" 
                 id="link" 
@@ -116,13 +142,12 @@ export default function ProjectUpdate(){
             </div>
 
             <div className="form-group">
-              <label htmlFor="name">Imagem do projeto</label>
+              <label htmlFor="image">Imagem do projeto</label>
               <input 
                 type="file" 
                 id="image" 
                 name="image" 
-                //value={image}
-                //onChange={e => setImage(e.target.files)}
+                onChange={handleImage}
                 className="form-control"/>
             </div>
 
