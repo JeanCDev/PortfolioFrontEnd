@@ -54,7 +54,7 @@ export default function Project(){
 
           <img 
             className=""
-            src={`${process.env.REACT_APP_API_URL}/${project?.projectImageUrl}`} 
+            src={`${process.env.REACT_APP_API_URL}${project?.projectImageUrl}`} 
             alt={project?.projectName}/>
 
           <div className="d-flex mt-5 justify-content-center row">

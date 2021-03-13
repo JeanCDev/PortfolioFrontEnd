@@ -36,7 +36,7 @@ export default function ProjectUpdate(){
         setDescription(response.data.projectDescription);
         setLink(response.data.projectLink);
         setGithub(response.data.githubUrl);
-        setCurrentImage(`${process.env.REACT_APP_API_URL}/${response.data.projectImageUrl}`);
+        setCurrentImage(`${process.env.REACT_APP_API_URL}${response.data.projectImageUrl}`);
       }
 
       setLoading(false);
